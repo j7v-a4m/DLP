@@ -3,6 +3,7 @@ using System;
 using DLP.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DLP.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240511141910_deleteAdditionalDatasFromCourse")]
+    partial class deleteAdditionalDatasFromCourse
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -192,14 +195,14 @@ namespace DLP.Persistence.Migrations
 
             modelBuilder.Entity("DLP.Core.Models.Subscription", b =>
                 {
-                    b.HasOne("DLP.Core.Models.Course", "Course")
-                        .WithMany("Students")
+                    b.HasOne("DLP.Core.Models.User", "Student")
+                        .WithMany("FollowedCourses")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("DLP.Core.Models.User", "Student")
-                        .WithMany("FollowedCourses")
+                    b.HasOne("DLP.Core.Models.Course", "Course")
+                        .WithMany("Students")
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();

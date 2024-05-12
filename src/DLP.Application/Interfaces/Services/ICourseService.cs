@@ -9,7 +9,7 @@ namespace DLP.Application.Interfaces.Services
 {
     public interface ICourseService
     {
-        Task CreateCourse(Course course);
+        Task CreateCourse(string title, string summary, Guid teacherId);
         Task DeleteCourse(Guid id);
         Task<List<Course>> GetAllCourses();
         Task<Course> GetCourseById(Guid id);

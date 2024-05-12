@@ -18,13 +18,13 @@ namespace DLP.Persistence.Configuration
             builder.
                 HasOne(s => s.Course)
                 .WithMany(s => s.Students)
-                .HasForeignKey(s => s.StudentId)
+                .HasForeignKey(s => s.CourseId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.
                 HasOne(s => s.Student)
                 .WithMany(s => s.FollowedCourses)
-                .HasForeignKey(s => s.CourseId)
+                .HasForeignKey(s => s.StudentId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

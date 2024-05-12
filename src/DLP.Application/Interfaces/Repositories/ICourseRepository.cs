@@ -11,8 +11,9 @@ namespace DLP.Application.Interfaces.Repositories
     {
         Task Create(Course course);
         Task Delete(Guid id);
-        Task<List<Course>> Get();
+        Task<List<Course>> GetAll();
         Task<Course> GetById(Guid id);
-        Task Update(Guid id, string title, string description);
+        Task Update(Guid id, string title, string summary);
+        
     }
 }

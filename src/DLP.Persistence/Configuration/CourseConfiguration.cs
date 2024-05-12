@@ -17,8 +17,8 @@ namespace DLP.Persistence.Configuration
             builder.HasKey(c => c.Id);
 
             builder.Property(c => c.Summary).IsRequired();
-            builder.Property(c => c.WhatYouWillLearn).IsRequired(false);
-            builder.Property(c => c.InitialRequirements).IsRequired(false);
+            //builder.Property(c => c.WhatYouWillLearn).IsRequired(false);
+            //builder.Property(c => c.InitialRequirements).IsRequired(false);
 
             // User(Teacher) -> Course
             builder.
@@ -32,12 +32,12 @@ namespace DLP.Persistence.Configuration
                 .HasConversion(v => v.Value, v => Title.Create(v).Value)
                 .IsRequired();
 
-            builder.
-                Property(c => c.AboutCourse)
-                .HasConversion(v => v.Value, v => Description.Create(v).Value)
-                .IsRequired(false);
+            //builder.
+            //    Property(c => c.AboutCourse)
+            //    .HasConversion(v => v.Value, v => Description.Create(v).Value)
+            //    .IsRequired(false);
 
-            builder.HasIndex(c => new { c.Title, c.Summary, c.WhatYouWillLearn });
+            //builder.HasIndex(c => new { c.Title, c.Summary, c.WhatYouWillLearn });
         }
     }
 }

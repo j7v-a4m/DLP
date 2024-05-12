@@ -34,29 +34,29 @@ namespace DLP.Core.Models
             IsTeacher = isTeacher;
         }
 
-        private User(
-            Guid id,
-            string firstName,
-            string lastName,
-            UserName userName,
-            Email email,
-            string passwordHash,
-            Gender gender,
-            bool isTeacher,
-            Description aboutMe,
-            ContactInfo contactInfo
-            ) : base(id)
-        {
-            FirstName = firstName;
-            LastName = lastName;
-            UserName = userName;
-            Email = email;
-            PasswordHash = passwordHash;
-            Gender = gender;
-            IsTeacher = isTeacher;
-            AboutMe = aboutMe;
-            ContactInfo = contactInfo;
-        }
+        //private User(
+        //    Guid id,
+        //    string firstName,
+        //    string lastName,
+        //    UserName userName,
+        //    Email email,
+        //    string passwordHash,
+        //    Gender gender,
+        //    bool isTeacher,
+        //    Description aboutMe,
+        //    ContactInfo contactInfo
+        //    ) : base(id)
+        //{
+        //    FirstName = firstName;
+        //    LastName = lastName;
+        //    UserName = userName;
+        //    Email = email;
+        //    PasswordHash = passwordHash;
+        //    Gender = gender;
+        //    IsTeacher = isTeacher;
+        //    AboutMe = aboutMe;
+        //    ContactInfo = contactInfo;
+        //}
 
         public string FirstName { get; }
         public string LastName { get; }
@@ -65,8 +65,8 @@ namespace DLP.Core.Models
         public string PasswordHash { get; }
         public Gender Gender { get; }
         public bool IsTeacher { get; }
-        public Description? AboutMe { get; }
-        public ContactInfo? ContactInfo { get; }
+        //public Description? AboutMe { get; }
+        //public ContactInfo? ContactInfo { get; }
         public IReadOnlyList<Course> MyCourses => _myCourses;
         public IReadOnlyList<Subscription> FollowedCourses => _followedCourses;
 
@@ -87,23 +87,23 @@ namespace DLP.Core.Models
             return new User(id, firstName, lastName, userName, email, passwordHash, gender, isTeacher);
         }
 
-        public static Result<User, Error> Create(
-            Guid id,
-            string firstName,
-            string lastName,
-            UserName userName,
-            Email email,
-            string passwordHash,
-            Gender gender,
-            bool isTeacher,
-            Description aboutMe,
-            ContactInfo contactInfo)
-        {
-            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName))
-                return Errors.General.ValueIsRequired();
+        //public static Result<User, Error> Create(
+        //    Guid id,
+        //    string firstName,
+        //    string lastName,
+        //    UserName userName,
+        //    Email email,
+        //    string passwordHash,
+        //    Gender gender,
+        //    bool isTeacher,
+        //    Description aboutMe,
+        //    ContactInfo contactInfo)
+        //{
+        //    if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName))
+        //        return Errors.General.ValueIsRequired();
 
-            return new User(id, firstName, lastName, userName, email, passwordHash, gender, isTeacher, aboutMe, contactInfo);
-        }
+        //    return new User(id, firstName, lastName, userName, email, passwordHash, gender, isTeacher, aboutMe, contactInfo);
+        //}
 
         public void AddCourses(List<Course> myCourses) => _myCourses.AddRange(myCourses);
         public void AddFollowedCourses(List<Course> followedCourses) => _followedCourses.AddRange(_followedCourses);

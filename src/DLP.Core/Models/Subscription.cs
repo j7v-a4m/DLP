@@ -9,11 +9,9 @@ namespace DLP.Core.Models
 {
     public class Subscription
     {
-        public Guid CourseId { get; }
-        public Guid StudentId { get; }
-        [ForeignKey(nameof(CourseId))]
-        public Course Course { get; }
-        [ForeignKey(nameof(StudentId))]
-        public User Student { get; }
+        public Guid CourseId { get; set; }
+        public Guid StudentId { get; set; }
+        public Course Course { get; set; }
+        public User Student { get; set; }
     }
 }

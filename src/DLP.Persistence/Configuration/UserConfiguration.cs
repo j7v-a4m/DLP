@@ -43,19 +43,19 @@ namespace DLP.Persistence.Configuration
                 .HasConversion(v => v.Value, v => Gender.Create(v).Value)
                 .IsRequired();
 
-            builder.
-                Property(u => u.AboutMe)
-                .HasConversion(v => v.Value, v => Description.Create(v).Value)
-                .HasMaxLength(1000)
-                .IsRequired();
+            //builder.
+            //    Property(u => u.AboutMe)
+            //    .HasConversion(v => v.Value, v => Description.Create(v).Value)
+            //    .HasMaxLength(1000)
+            //    .IsRequired();
 
-            builder.
-                Property(u => u.ContactInfo)
-                .HasConversion(v => v.PhoneNumber, v => ContactInfo.Create(v).Value)
-                .HasConversion(v => v.TelegramLink, v => ContactInfo.Create(v).Value)
-                .HasConversion(v => v.WebSiteUrl, v => ContactInfo.Create(v).Value)
-                .HasConversion(v => v.YouTubeUrl, v => ContactInfo.Create(v).Value)
-                .IsRequired();
+            //builder.
+            //    Property(u => u.ContactInfo)
+            //    .HasConversion(v => v.PhoneNumber, v => ContactInfo.Create(v).Value)
+            //    .HasConversion(v => v.TelegramLink, v => ContactInfo.Create(v).Value)
+            //    .HasConversion(v => v.WebSiteUrl, v => ContactInfo.Create(v).Value)
+            //    .HasConversion(v => v.YouTubeUrl, v => ContactInfo.Create(v).Value)
+            //    .IsRequired();
 
             //builder.
             //    OwnsOne(u => u.ContactInfo, contactBuilder =>
